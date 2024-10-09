@@ -95,14 +95,13 @@ console.log(eliminateTeam(["Brazil", "Germany", "Italy"]));
 function secondHalfOfArrayIfItIsEven(fruits) {
   if (fruits.length % 2 === 0) {
     const half = fruits.length / 2;
-
     const newArray = fruits.slice(half);
-
     return newArray;
-  }
+  } else return (fruits = []);
 }
 
 console.log(secondHalfOfArrayIfItIsEven(["apple", "orange", "banana", "kiwi"]));
+console.log(secondHalfOfArrayIfItIsEven(["apple", "orange", "banana"]));
 
 // CHALLENGE 2
 /**
@@ -121,12 +120,15 @@ console.log(secondHalfOfArrayIfItIsEven(["apple", "orange", "banana", "kiwi"]));
  */
 
 function youGottaCalmDown(shout) {
-  let calmDown = shout.indexof("!");
+  const firstExclamationMark = shout.indexOf("!");
 
-  let imFine = shout.slice(0, calmDown - 1);
+  if (firstExclamationMark === -1) {
+    return shout;
+  }
+  const imOk = shout.slice(0, firstExclamationMark + 1);
 
-  return imFine;
-} //end of function :)
+  return imOk;
+}
 
 console.log(youGottaCalmDown("HI!!!!!!!!!!"));
 console.log(youGottaCalmDown("Taylor Schwift!!!!!!!!!!!"));
